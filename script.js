@@ -91,27 +91,55 @@ class LinkedList {
 
     pop(){
         
-        let node = this.head
-
         let current = this.head
         let previous = null
-        
-        while(current.next !== null){
-            //node = node.next
 
-            previous = current
-        
+        //console.log(current)
+        if (current === null) return null
+
+        if (current.next === null ){
+            return null
+        }
+
+        while (current.next !== null){
+
+            previous = current;
             current = current.next
-             
-        } if(current.next === null){
+            
+        } if ( current.next === null) {
+            
+            //delete previous.next KINDA works
+            console.log(previous, "previous")
+            console.log(current, "current")
+
+            previous.next = null
+
             console.log(previous)
-            current.next = previous
-             
+            
+            return current
         }
         
     }
-}
 
+    contains(value){
+
+        let node = this.head;
+        
+        if(node == null) { return null }
+        console.log(node.value)
+
+        while(node.next !== null){
+            node = node.next
+            console.log(node.value)
+        }   if(node.value === value){
+                console.log(node.value)
+                return true
+        } else {
+            return false
+        }
+    }
+
+}
 
 
 let myList = new LinkedList()
@@ -125,8 +153,13 @@ console.log(myList.getHead())
 console.log(myList.getTail())
 
 
-console.log(myList.atIndex(0))
+console.log(myList.atIndex(5))
+
+console.log("above is the completed indexAT")
 
 console.log(myList.pop())
 
 console.log(myList)
+
+console.log(myList.contains(5))
+
