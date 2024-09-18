@@ -126,17 +126,55 @@ class LinkedList {
         let node = this.head;
         
         if(node == null) { return null }
-        console.log(node.value)
-
+        // this accounts for the head node
+        if(node.value === value) { return true}
+        
         while(node.next !== null){
             node = node.next
-            console.log(node.value)
+            
         }   if(node.value === value){
-                console.log(node.value)
+            
                 return true
         } else {
             return false
         }
+    }
+
+    find(value){
+        let arr = [];
+        let node = this.head;
+
+        if(node === null) { return null}
+
+        //acct for first node
+        if (node.value === value){
+            return value
+        } else {
+            "not found"
+        }
+
+        while(node.next !== null){
+
+            node = node.next
+            arr.push(node)
+
+        } if(node.value === value){
+            return value
+        } else {
+            return " not found "
+        }
+    }
+
+    toString(){
+
+        let printDiv = document.createElement("div")
+        printDiv.setAttribute("id", "printDiv")
+        
+        document.body.appendChild(printDiv)
+
+        console.log(printDiv)
+
+        return "print"
     }
 
 }
@@ -162,4 +200,8 @@ console.log(myList.pop())
 console.log(myList)
 
 console.log(myList.contains(5))
+
+console.log(myList.find(2))
+
+console.log(myList.toString())
 
